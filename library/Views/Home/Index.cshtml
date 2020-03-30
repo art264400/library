@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Доступные книги";
+}
+<div>
+    <h3>Доступные книги</h3>
+    <table>
+        <tr>
+            <td><p>Название книги</p></td>
+            <td><p>Описание книги</p></td>
+        </tr>
+        @foreach (var b in ViewBag.Books)
+        {
+        <tr>
+            <td><p>@b.Name</p> </td>
+            <td><p>@b.Description</p> </td>
+            @*<td>@Html.ActionLink("Арендовать книгу","Buy/"+@b.Id, "Home")</td>*@
+            <td><a href="/home/buy/@b.Id">Арендовать книгу</a></td>
+        </tr>
+        }
+    </table>
+</div>
+
