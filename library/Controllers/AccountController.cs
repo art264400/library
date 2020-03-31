@@ -8,8 +8,9 @@ using library.Models;
 
 namespace library.Controllers
 {
-    public class AccountController : IController
+    public class AccountController : Controller
     {
+        BookContext db=new BookContext();
         // GET: Account
         //public ActionResult Login()
         //{
@@ -23,7 +24,8 @@ namespace library.Controllers
             var ip = requestContext.HttpContext.Request.UserHostAddress;
             var response = requestContext.HttpContext.Response;
             response.Write("<h2>Ваш ip адрес "+ip+ "</h2>");
-           
         }
+
+       
     }
 }

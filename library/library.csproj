@@ -214,6 +214,8 @@
     <Content Include="Views\library\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\Buy.cshtml" />
+    <Content Include="Views\Account\View.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

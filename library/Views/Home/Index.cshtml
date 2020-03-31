@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<library.Models.BookModel>
+@{
     ViewBag.Title = "Доступные книги";
 }
 <div>
@@ -8,12 +9,11 @@
             <td><p>Название книги</p></td>
             <td><p>Описание книги</p></td>
         </tr>
-        @foreach (var b in ViewBag.Books)
+        @foreach (var b in Model)
         {
         <tr>
             <td><p>@b.Name</p> </td>
             <td><p>@b.Description</p> </td>
-            @*<td>@Html.ActionLink("Арендовать книгу","Buy/"+@b.Id, "Home")</td>*@
             <td><a href="/home/buy/@b.Id">Арендовать книгу</a></td>
         </tr>
         }
