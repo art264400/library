@@ -5,10 +5,10 @@ using System.Web;
 
 namespace library.Models
 {
-    public class LoginModel
+    public class RoleModel
     {
-        public string Login { get; set; }
-        public string Password { get; set; }       
+        public int Id { get; set; }
+        public string Name { get; set; }
+        
     }
-
 }

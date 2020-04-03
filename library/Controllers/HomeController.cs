@@ -24,8 +24,13 @@ namespace library.Controllers
             return Content("<p>Browser: " + browser + "</p><p>User-Agent: " + user + "</p><p>Url запроса: " + url +
                    "</p><p>Реферер: " + referrer + "</p><p>IP-адрес: " + ip + "</p>");
         }
+        [Authorize]
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Content(User.Identity.Name);
+            }
             var books = db.Books;
             //ViewBag.Books = books;
             //Response.Cookies["id"].Value = "dsa";
@@ -39,7 +44,8 @@ namespace library.Controllers
         public ActionResult Buy(int id)
         {
             ViewBag.BookId = id;
-            return View();
+            var purchase = new PurchaseModel() {BookId = id};
+            return View(purchase);
         }
 
         [HttpPost]
@@ -73,14 +79,14 @@ namespace library.Controllers
             return "<p>Книга успешно добавлена<p>";
         }
 
-
+        [Authorize(Roles = "admin")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

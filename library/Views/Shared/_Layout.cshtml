@@ -5,13 +5,16 @@
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 </head>
- 
+
 <body>
-<nav>
-    <ul class="menu">
-        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-    </ul>
-</nav>
-@RenderBody()
+    <nav>
+        <ul class="menu">
+            <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+            <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
+            <li>@Html.ActionLink("Войти", "Login", "Account")</li>
+            <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
+        </ul>
+    </nav>
+    @RenderBody()
 </body>
 </html>

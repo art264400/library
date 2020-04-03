@@ -1,10 +1,30 @@
-﻿
+﻿@model library.Models.PurchaseModel
 @{
     ViewBag.Title = "Аренда книги";
 }
 
-<h2>Форма для арунды книги</h2>
-<div>
+<h2>Форма для аренды книги</h2>
+@using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+{
+    @Html.Hidden("BookId", ViewBag.BookId as string)
+    <table>
+        <tr>
+            <td><p>@Html.Label("Person","Введите имя")</p></td>
+            <td>@Html.TextBox("Person","Введите имя")</td>
+        </tr>
+        <tr>
+            <td><p>@Html.Label("Address","Введите свой адрес")</p></td>
+            <td>@Html.TextBox("Address","Введите адрес")</td>
+        </tr>
+        <tr colspan="2">
+            <td><input type="submit" value="Отправить"/></td>
+            <td></td>
+        </tr>
+    </table>
+}
+
+
+@*<div>
     <form method="post">
         <input hidden="true" type="text" value=@ViewBag.BookId name="BookId"/>
         <table>
@@ -22,5 +42,5 @@
             </tr>
         </table>
     </form>
-</div>
+</div>*@
 
