@@ -14,6 +14,7 @@ namespace library.Models
         public string Surname { get; set; }        
         public string Email { get; set; }
         public int RoleId { get; set; }
-        public RoleModel role { get; set; }
+        public RoleModel Role{ get; set; }
+        
     }
 }

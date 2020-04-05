@@ -14,6 +14,7 @@ namespace library.Controllers
     {
         BookContext db=new BookContext();
         // GET: Account
+
         public ActionResult Register()
         {
             return View();
@@ -79,15 +80,15 @@ namespace library.Controllers
             return View(model);
         }
 
-        public ActionResult Logout()
-        {
-            return View("Logout");
-        }
-        [HttpPost]
-        public ActionResult Logout(LoginModel model)
-        {
-            return View("Logout");
-        }
+        //public ActionResult Logout()
+        //{
+        //    return View("Logout");
+        //}
+        //[HttpPost]
+        //public ActionResult Logout(LoginModel model)
+        //{
+        //    return View("Logout");
+        //}
         //public void Execute(RequestContext requestContext)
         //{
         //    var cookies = requestContext.HttpContext.Request.Cookies;
