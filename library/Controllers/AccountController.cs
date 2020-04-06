@@ -58,6 +58,7 @@ namespace library.Controllers
 
         public ActionResult Login()
         {
+            if (User.Identity.IsAuthenticated) return View("~/Views/home/index.cshtml");
             return View();
         }
         [ValidateAntiForgeryToken]
@@ -69,6 +70,8 @@ namespace library.Controllers
                 var user = db.Users.FirstOrDefault(n => n.Login == model.Login && n.Password == model.Password);
                 if (user != null)
                 {
+
+                    FormsAuthentication.SignOut();
                     FormsAuthentication.SetAuthCookie(model.Login,true);
                     return RedirectToAction("Index", "Home");
                 }  
@@ -80,10 +83,11 @@ namespace library.Controllers
             return View(model);
         }
 
-        //public ActionResult Logout()
-        //{
-        //    return View("Logout");
-        //}
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
         //[HttpPost]
         //public ActionResult Logout(LoginModel model)
         //{

@@ -24,7 +24,7 @@ namespace library.Controllers
             return Content("<p>Browser: " + browser + "</p><p>User-Agent: " + user + "</p><p>Url запроса: " + url +
                    "</p><p>Реферер: " + referrer + "</p><p>IP-адрес: " + ip + "</p>");
         }
-        [Authorize(Roles = "admin")]
+        [Authorize]
         public ActionResult Index()
         {
             //if (User.Identity.IsAuthenticated)
